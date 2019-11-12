@@ -6,19 +6,21 @@ import java.util.*;
 
 public class Lot {
 
-        private LocalDateTime odlot;
-        private LocalDateTime przylot;
-        private int dostepneBilety;
-        private Trasa trasa;
-        private Locale PL = new Locale("pl", "PL");
-        private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEEE d-MM-yyyy HH:mm", PL);
+    private LocalDateTime odlot;
+    private LocalDateTime przylot;
+    private Trasa trasa;
+    private List<Bilet> bilet;
+    private List<Pasazer> kolejkaOczekujacych;
+    private Locale PL = new Locale("pl", "PL");
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEEE d-MM-yyyy HH:mm", PL);
 
-        public Lot(LocalDateTime odlot, LocalDateTime przylot, int dostepneBilety, Trasa trasa){
-            this.odlot = odlot;
-            this.przylot = przylot;
-            this.dostepneBilety = dostepneBilety;
-            this.trasa = trasa;
-        }
+    public Lot(LocalDateTime odlot, LocalDateTime przylot, Trasa trasa, List<Bilet> bilet, List<Pasazer> kolejkaOczekujacych) {
+        this.odlot = odlot;
+        this.przylot = przylot;
+        this.trasa = trasa;
+        this.bilet = bilet;
+        this.kolejkaOczekujacych = kolejkaOczekujacych;
+    }
 
     public LocalDateTime getOdlot() {
         return odlot;
@@ -28,12 +30,16 @@ public class Lot {
         return przylot;
     }
 
-    public int getDostepneBilety() {
-        return dostepneBilety;
-    }
-
     public Trasa getTrasa() {
         return trasa;
+    }
+
+    public List<Bilet> getBilet() {
+        return bilet;
+    }
+
+    public List<Pasazer> getKolejkaOczekujacych() {
+        return kolejkaOczekujacych;
     }
 
     public void setOdlot(LocalDateTime odlot) {
@@ -44,11 +50,13 @@ public class Lot {
         this.przylot = przylot;
     }
 
-    public void setDostepneBilety(int dostepneBilety) {
-        this.dostepneBilety = dostepneBilety;
-    }
-
     public void setTrasa(Trasa trasa) {
         this.trasa = trasa;
+    }
+
+    @Override
+    public String toString() {
+        return trasa + " (odlot: " + dtf.format(odlot) +
+                ", przylot: " + dtf.format(przylot) + ")";
     }
 }

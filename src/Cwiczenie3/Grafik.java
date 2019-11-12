@@ -1,11 +1,11 @@
 package Cwiczenie3;
 
-public class Trasa {
+public class Grafik {
 
     private Lotnisko miejsceOdlotu;
     private Lotnisko miejscePrzylotu;
 
-    public Trasa (Lotnisko miejsceOdlotu, Lotnisko miejscePrzylotu){
+    public Grafik (Lotnisko miejsceOdlotu, Lotnisko miejscePrzylotu){
         this.miejsceOdlotu = miejsceOdlotu;
         this.miejscePrzylotu = miejscePrzylotu;
     }
@@ -20,6 +20,6 @@ public class Trasa {
 
     @Override
     public String toString() {
-        return  miejsceOdlotu + "=>" + miejscePrzylotu;
+        return  miejsceOdlotu + "->" + miejscePrzylotu;
     }
 }

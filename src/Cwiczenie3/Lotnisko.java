@@ -15,4 +15,9 @@ public class Lotnisko {
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
+
+    @Override
+    public String toString() {
+        return  nazwa;
+    }
 }
