@@ -1,23 +1,29 @@
 package Cwiczenie3;
 
+import java.util.EnumMap;
+
 public class Lotnisko {
 
-    private String nazwa;
+    private Oznaczenie oznaczenie;
 
-    public Lotnisko (String nazwaLotniska){
-        this.nazwa = nazwaLotniska;
+    public Lotnisko(Oznaczenie oznaczenie) {
+        this.oznaczenie = oznaczenie;
     }
 
-    public String getNazwa() {
-        return nazwa;
+    public Oznaczenie getOznaczenie() {
+        return oznaczenie;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
+    enum Oznaczenie {
+        ZRH("Zurych"),
+        WRO("Wroclaw"),
+        POZ("Poznan"),
+        WAW("Warszawa");
 
-    @Override
-    public String toString() {
-        return  nazwa;
+        private final String nazwaMiejscowosci;
+
+        Oznaczenie(String nazwaMiejscowosci) {
+            this.nazwaMiejscowosci = nazwaMiejscowosci;
+        }
     }
 }

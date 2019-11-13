@@ -4,12 +4,12 @@ import java.time.*;
 
 public class Bilet {
 
-    private String pasazer;
+    private Pasazer pasazer;
     private double cena;
     private Lot lot;
     private String bagaz;
 
-    public Bilet(String pasazer, double cena, Lot lot, String bagaz){
+    public Bilet(Pasazer pasazer, double cena, Lot lot, String bagaz){
         this.pasazer = pasazer;
         this.cena = cena;
         this.lot = lot;
@@ -24,7 +24,7 @@ public class Bilet {
         return lot;
     }
 
-    public String getPasazer() {
+    public Pasazer getPasazer() {
         return pasazer;
     }
 

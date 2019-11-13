@@ -18,6 +18,10 @@ public class Grafik {
         return miejscePrzylotu;
     }
 
+    public static Grafik of(Lotnisko odlot, Lotnisko przylot) {
+        return new Grafik(odlot, przylot);
+    }
+
     @Override
     public String toString() {
         return  miejsceOdlotu + "->" + miejscePrzylotu;
