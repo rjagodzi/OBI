@@ -4,26 +4,19 @@ import java.util.EnumMap;
 
 public class Lotnisko {
 
-    private Oznaczenie oznaczenie;
+    private final String oznaczenie;
+    private final String miejscowosc;
 
-    public Lotnisko(Oznaczenie oznaczenie) {
+    public Lotnisko(String oznaczenie, String miejscowosc) {
         this.oznaczenie = oznaczenie;
+        this.miejscowosc = miejscowosc;
     }
 
-    public Oznaczenie getOznaczenie() {
+    public String getOznaczenie() {
         return oznaczenie;
     }
 
-    enum Oznaczenie {
-        ZRH("Zurych"),
-        WRO("Wroclaw"),
-        POZ("Poznan"),
-        WAW("Warszawa");
-
-        private final String nazwaMiejscowosci;
-
-        Oznaczenie(String nazwaMiejscowosci) {
-            this.nazwaMiejscowosci = nazwaMiejscowosci;
-        }
+    public String getMiejscowosc() {
+        return miejscowosc;
     }
 }

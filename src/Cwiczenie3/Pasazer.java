@@ -18,6 +18,10 @@ public class Pasazer {
         this.bilet = bilet;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getImie() {
         return imie;
     }

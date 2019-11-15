@@ -1,9 +1,7 @@
 package Cwiczenie3;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SystemowaKlasa {
 
@@ -41,10 +39,6 @@ public class SystemowaKlasa {
         return lotniska;
     }
 
-    public static void main(String[] args) {
-        new Lotnisko(Lotnisko.Oznaczenie.ZRH);
-    }
-
     void dodajLot(Lot lot) {
         listaLotow.add(lot);
     }
@@ -61,6 +55,7 @@ public class SystemowaKlasa {
         listaPasazerow.add(pasazer);
     }
 
+
     public Lotnisko znajdzGrafik(Lotnisko lotnisko) {
         return listaGrafikow.stream()
                 .filter(grafik -> grafik.getMiejscePrzylotu().getOznaczenie() == lotnisko.getOznaczenie())
@@ -76,5 +71,25 @@ public class SystemowaKlasa {
                 .filter(lot -> lot.getGrafik().getMiejscePrzylotu().getOznaczenie() == lotnisko.getOznaczenie())
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public void dodajPasazeraDoLotu(Samolot samolot, Pasazer pasazer, UUID id) {
+        znajdzLot(id).ifPresent(lot -> {
+            if (samolot.getLiczbaMiejsc() > lot.getPasazerowie().size()) {
+                lot.dodajPasazera(pasazer);
+            }
+        });
+    }
+
+    private Optional<Lot> znajdzLot(UUID id) {
+        return listaLotow.stream()
+                .filter(lot -> lot.getId().equals(id))
+                .findFirst();
+    }
+
+    public Lot przesunPasazera(Pasazer pasazer, Lot lot) {
+        lot.getPasazerowie().remove(pasazer);
+        lot.getPasazerowie().add(lot.getKolejkaOczekujacych().poll());
+        return lot;
     }
 }

@@ -9,6 +9,7 @@ public class Lot {
     private UUID id;
     private LocalDateTime odlot;
     private LocalDateTime przylot;
+    private Samolot samolot;
     private Grafik grafik;
     private List<Pasazer> pasazerowie;
     private Queue<Pasazer> kolejkaOczekujacych;
@@ -44,6 +45,10 @@ public class Lot {
 
     public  Queue<Pasazer> getKolejkaOczekujacych() {
         return kolejkaOczekujacych;
+    }
+
+    void dodajPasazera(Pasazer pasazer) {
+        pasazerowie.add(pasazer);
     }
 
 }
